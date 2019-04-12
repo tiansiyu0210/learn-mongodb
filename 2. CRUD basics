@@ -1,0 +1,39 @@
+//example
+[
+  {
+    "departureAirport": "MUC",
+    "arrivalAirport": "SFO",
+    "aircraft": "Airbus A380",
+    "distance": 12000,
+    "intercontinental": true
+  },
+  {
+    "departureAirport": "LHR",
+    "arrivalAirport": "TXL",
+    "aircraft": "Airbus A320",
+    "distance": 950,
+    "intercontinental": false
+  }
+]
+
+
+
+//Database > Collections > Documents
+
+
+>db.flightData.find()
+
+//delete the first matched document
+>db.flightData.deleteOne({departureAirport: "TXL"})
+>db.flightData.deleteOne({_id: "xxxxxx"})
+
+
+//update where departureAirport is TXL
+>db.flightData.updateOne({departureAirport: "TXL"}, {$set: {maker: "deleted"}})
+
+//update all
+>db.flightData.updateMany({}, {$set: {maker: "toDeleted"}})
+
+
+//delete
+db.flightData.deletedMany({maker: "toDeleted"})
