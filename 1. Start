@@ -1,0 +1,22 @@
+//show all databases
+>show dbs
+
+//use a database, if no name match, then create a new collection
+>use [db name]
+
+
+//insert
+>db.student.insertOne({name: "tian", age: 31})
+
+//return all
+>db.student.find()
+>db.student.find().pretty()
+
+//clear the sereen
+>cls
+
+>db.student.insertOne(
+        {name: "tian", age: 31, details: {
+            address: "3005 morningside",
+            gender: "male"
+        }})
