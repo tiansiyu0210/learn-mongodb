@@ -1,0 +1,6 @@
+//only return name and id
+>db.student.find({}, {name: 1})
+
+//only return name
+//only return name and id
+>db.student.find({}, {name: 1, _id: 0}).pretty()
