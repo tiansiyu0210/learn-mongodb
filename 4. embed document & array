@@ -1,0 +1,10 @@
+nested document is embedded document
+
+
+
+//array format
+name: ["tian", "siyu"]
+name: [{}, {}, {}]
+
+
+
