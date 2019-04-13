@@ -79,7 +79,7 @@ db.flightData.deletedMany({maker: "toDeleted"})
 
 //find
 > db.flightData.find().toArray()  //return all
-> db.flightData.forEach((flghtInfo) => {printjson(flghtInfo)})
+> db.flightData.forEach((flightInfo) => {printjson(flghtInfo)})
 > db.flightData.find({"passages.name": "tian"}) //need quote here
 
 
