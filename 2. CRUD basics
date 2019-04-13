@@ -37,3 +37,46 @@
 
 //delete
 db.flightData.deletedMany({maker: "toDeleted"})
+
+
+
+//insert many
+
+>db.flightData.insertMany([
+                           {
+                             "departureAirport": "MUC",
+                             "arrivalAirport": "SFO",
+                             "aircraft": "Airbus A380",
+                             "distance": 12000,
+                             "intercontinental": true
+                           },
+                           {
+                             "departureAirport": "LHR",
+                             "arrivalAirport": "TXL",
+                             "aircraft": "Airbus A320",
+                             "distance": 950,
+                             "intercontinental": false
+                           }
+                         ])
+
+
+//find
+>db.flightData.find({intercontinental: true}).pretty()
+
+//greater or less than
+>db.flightData.find({distance: {$gt: 10000}})
+>db.flightData.findOne({distance: {$gt: 10000}})
+
+
+
+//update one
+>db.flightData.updateOne({_id: ObjectId("xxxxxxxxx")}, {$set: {delay: true}})
+
+//replace
+>db.flightData.update({_id: ObjectId("xxxxxxxxx")}, {delay: true})  // this one will overwrite the old document
+>db.flightData.replaceOne({_id: ObjectId("xxxxxxxxx")}, {delay: true})
+
+
+//find
+> db.flightData.find().toArray()  //return all
+> db.flightData.forEach((flghtInfo) => {printjson(flghtInfo)})
