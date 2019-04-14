@@ -1,0 +1,17 @@
+>mongod --port 27000
+>mongod --help
+>mongod --dbpath [args]
+>mongod --logpath
+>mongod --directoryperdb
+//logpath is required for fork, fork to make mongo run in background, fork is for linux/mac on only
+>mongod --fork --logpath [arg]
+
+
+
+//assume we have config file called mongdo.cfg
+>mongod --f /Users/xxx/xxx/xxx/mongod.cfg
+
+
+
+
+
