@@ -1,0 +1,30 @@
+//insert() can insert one or many
+//insertMay([{}, {}, {}])
+
+//import data,  drop mean if we have the collection already, we delete that and create new one
+>mongoimport [fileName] -d [databaseName] -c [collectionName] --jsonArray  --drop
+
+
+
+//set ordered to false, when for example N0.2 document is wrong, No.1 and No.3 still can get into db
+>insertMay([{1}, {2}, {3}], {ordered: false})
+
+
+//writeConcern
+//{w: 1, wtimeout: 200, j: true}   ==> w means many instants,  j mean Journal default is false or undefined
+>db.persons,insertOne({name: "tian", age: 31}, {writeConcern: {w: 1, j: true, wtimeout: 200}})
+
+
+
+
+
+insertOne(): https://docs.mongodb.com/manual/reference/method/db.collection.insertOne/
+
+insertMany(): https://docs.mongodb.com/manual/reference/method/db.collection.insertMany/
+
+Atomicity: https://docs.mongodb.com/manual/core/write-operations-atomicity/#atomicity
+
+Write Concern: https://docs.mongodb.com/manual/reference/write-concern/
+
+Using mongoimport: https://docs.mongodb.com/manual/reference/program/mongoimport/index.html
+
