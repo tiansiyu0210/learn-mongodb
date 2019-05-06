@@ -1,0 +1,25 @@
+//books document
+{
+    "_id": "xxxxx"
+    "name": "a book"
+    "authorIds": [
+                    ObjectId("authors_001"),
+                    ObjectId("authors_002"),
+                    ObjectId("authors_003")
+                ]
+}
+
+// authors document
+{
+    "_id": "xxxxx"
+    "name": "tian"
+    "age": 31
+},
+{
+    "_id": "xxxxx"
+    "name": "cao"
+    "age": 30
+}
+
+
+>db.books.aggregate([$lookup: {from: authors, localField: "authorIds", foreignField: "_id", as: "creators"}]).pretty()

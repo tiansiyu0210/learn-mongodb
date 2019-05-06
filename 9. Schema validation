@@ -1,0 +1,81 @@
+db.createCollection("student",
+    {
+        validator:{
+            $jsonSchema:{
+                bsonType: "object",
+                required: ["name", "age", "gender", "department", "books"],
+                properties: {
+                    name:{
+                        bsonType: "string",
+                        description: "must be a string and required"
+                    },
+                    age:{
+                        bsonType: "number",
+                        description: "must be a number and required"
+                    },
+                    gender:{
+                        bsonType: "string",
+                        description: "must be a string and required"
+                    },
+                    department: {
+                        bsonType: "objectId"
+                    },
+                    books: {
+                        bsonType: "array",
+                        items: {
+                            bsonType: "object",
+                            required: ["title"],
+                            properties: {
+                                title: {
+                                    bsonType: "string",
+                                    description: "must be a string and required"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    })
+
+
+//update validation
+>db.runCommand({callMod: "student", validator: {
+                                                $jsonSchema:{
+                                                    bsonType: "object",
+                                                    required: ["name", "age", "gender", "department", "books"],
+                                                    properties: {
+                                                        name:{
+                                                            bsonType: "string",
+                                                            description: "must be a string and required"
+                                                        },
+                                                        age:{
+                                                            bsonType: "number",
+                                                            description: "must be a number and required"
+                                                        },
+                                                        gender:{
+                                                            bsonType: "string",
+                                                            description: "must be a string and required"
+                                                        },
+                                                        department: {
+                                                            bsonType: "objectId"
+                                                        },
+                                                        books: {
+                                                            bsonType: "array",
+                                                            items: {
+                                                                bsonType: "object",
+                                                                required: ["title"],
+                                                                properties: {
+                                                                    title: {
+                                                                        bsonType: "string",
+                                                                        description: "must be a string and required"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            validationAction: 'warn'
+
+                                    })

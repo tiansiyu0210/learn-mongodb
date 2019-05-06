@@ -1,0 +1,3 @@
+
+>db.student.insertOne({name: "tian", age: 31, summary: "summary_001"})
+>db.summary,insertOne({_id: "summary_001", tags: ["tag1", "tag2"]})
